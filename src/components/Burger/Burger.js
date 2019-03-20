@@ -18,7 +18,7 @@ const burger = (props) => {
         <div className={classes.Burger}>
       
         <BurgerIngrediant type='bread-top'/>
-        {transformed>0? transformed:<p>Please start adding ingrediants! </p>}
+        {transformed.length>0? transformed:<p>Please start adding ingrediants! </p>}
         <BurgerIngrediant type='bread-bottom'/>
 
         </div>
