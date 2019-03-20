@@ -65,11 +65,18 @@ class BurgerBuilder extends Component {
         })
     }
 
+    closeModal = () => {
+        this.setState({
+            orderNowClicked :false
+        })
+    }
+
     render() {
         return (
             <AUX>
                 <Burger ingrediants={this.state.ingrediants} />
-                <Modal show={this.state.orderNowClicked}>
+                <Modal show={this.state.orderNowClicked}
+                modalClosed={this.closeModal}>
                     <OrderSummary ingrediantSummary={this.state.ingrediants}/>
                 </Modal>
 
