@@ -71,13 +71,21 @@ class BurgerBuilder extends Component {
         })
     }
 
+    continueHandler = () => {
+        alert('you continue')
+    }
+
     render() {
         return (
             <AUX>
                 <Burger ingrediants={this.state.ingrediants} />
                 <Modal show={this.state.orderNowClicked}
                 modalClosed={this.closeModal}>
-                    <OrderSummary ingrediantSummary={this.state.ingrediants}/>
+                    <OrderSummary 
+                    ingrediantSummary={this.state.ingrediants}
+                    purchaseCanceled={this.closeModal}
+                    purchaseContinue ={this.continueHandler}
+                    price={this.state.price}/>
                 </Modal>
 
                 <BuildControls controlMethod={this.ingrediantsControl}
