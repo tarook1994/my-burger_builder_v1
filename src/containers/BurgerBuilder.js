@@ -13,12 +13,27 @@ class BurgerBuilder extends Component {
         }
     }
 
+    ingrediantsControl= (type, isIncrease) => {
+
+        this.setState((prevState,props)=> {
+            let modifiedState = prevState.ingrediants
+            if(isIncrease){
+                modifiedState[type] = modifiedState[type]+1;
+            } else if(!isIncrease && modifiedState[type]>0){
+                modifiedState[type] = modifiedState[type]-1;
+            }
+
+            return {
+                ingrediants : modifiedState
+            }
+        })
+    }
+
     render(){
         return (
             <AUX>
                 <Burger ingrediants = {this.state.ingrediants}/>
-                <BuildControls></BuildControls>
-
+                <BuildControls controlMethod={this.ingrediantsControl}/>
             </AUX>
 
 
